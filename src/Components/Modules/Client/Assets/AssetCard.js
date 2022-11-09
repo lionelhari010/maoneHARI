@@ -1,21 +1,28 @@
 import { FaBars } from "react-icons/fa";
 
+// import ReactTooltip from "react-tooltip";
+
 const AssetCard = (props) => {
   const { eachUser } = props;
 
-  const { pics, pname, uid, uname } = eachUser;
+  const { id, pics, pname, uid, uname } = eachUser;
 
   return (
     <div className="flex flex-col drop-shadow-2xl border-3 border-gray-100 shadow-lg rounded-lg  ">
       <div className="">
         <img className="h-40 w-40" src={pics} alt={pname} />
-        <div className="flex bg-gray-200 h-14 -mt-2 px-2 py-2 items-center justify-between  p-15">
-          <p className="bg-slate-500 text-white font-semibold p-2 h-12 mt-2 pt-3  -ml-2">
+        <div className="flex bg-gray-300 h-14 items-center ">
+          <p className="bg-slate-500 text-white font-semibold p-2 pt-[17px] h-14  ">
             {uid}
           </p>
-          <div className="flex flex-col ">
+          <div className="flex flex-col  mx-2">
             <span>{pname}</span>
-            <span>{uname}</span>
+            <span data-tip data-for={id} className="truncate w-20">
+              {uname}
+            </span>
+            {/* <ReactTooltip id={id} place="bottom" effect="float">
+              {uname}
+            </ReactTooltip> */}
           </div>
           <FaBars className="fa-bars" />
         </div>

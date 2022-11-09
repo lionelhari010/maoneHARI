@@ -6,7 +6,12 @@ module.exports = {
       textColor: {
         skin: {
           base: "var(--text-color)",
+          indicator: "var(--fill-color-indicator)",
         },
+      },
+
+      minHeight: {
+        "1/2": "50%",
       },
 
       backgroundColor: {
@@ -19,6 +24,9 @@ module.exports = {
       colors: {
         "dark-purple": "#081A51",
         "light-white": "rgba(255,255,255,0.17)",
+      },
+      fontWeight: {
+        12: "12px",
       },
     },
   },

@@ -56,7 +56,7 @@ const Inbox = ({ children }) => {
 
   return (
     <section className="">
-      <div className="flex flex-row justify-between items-center pl-5  p-4 border border-t-0 border-x-0 shadow-md mb-2 ">
+      <div className="flex flex-row justify-between items-center pl-5  p-4 border border-t-0 border-x-0 shadow-md  ">
         <div className="flex justify-center items-center  ">
           <Dropdown className="mr-2" icon={<BsSliders className="h-36" />}>
             {dropdownMenu.map((item) => (

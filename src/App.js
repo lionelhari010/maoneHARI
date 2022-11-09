@@ -17,27 +17,9 @@ import AuditLog from "./Components/Modules/Client/NewRequest/AuditLog";
 import Comments from "./Components/Modules/Client/NewRequest/Comments";
 import Tasks from "./Components/Modules/Client/NewRequest/Tasks";
 import Reporting from "./Components/Modules/Client/Reporting";
+import Login from "./Components/Login";
 
-// const ThemeButtons = ({ setTheme }) => {
-//   return (
-//     <div className="absolute flex left-8 bottom-4 ">
-//       <ThemeCircle setTheme={setTheme} value="" bg="bg-indigo-500" />
-//       <ThemeCircle setTheme={setTheme} value="dark" bg="bg-slate-500" />
-//       <ThemeCircle setTheme={setTheme} value="purple" bg="bg-purple-500" />
-//     </div>
-//   );
-// };
-
-// const ThemeCircle = (props) => {
-//   return (
-//     <div
-//       className={
-//         "h-6 w-6 mt-4 m-3 last:mr-0 rounded-full cursor-pointer " + props.bg
-//       }
-//       onClick={() => props.setTheme(props.value)}
-//     ></div>
-//   );
-// };
+import Browse from "./Components/Modules/Client/Assets/Browse";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -55,36 +37,43 @@ const App = () => {
 
   const applyThemes = theme === false ? "theme-light" : "theme-dark";
 
+  const [login, setLoggedIn] = useState(false);
+
   return (
     <>
-      <AppContext.Provider value={{ theme, toggleTheme }}>
-        <div
-          // className="theme-dark"
-          className={`${applyThemes}`}
-          // className={
-          // theme === "false" ? "theme-light" : theme === "theme-dark"
-          // ? "theme-purple"
-          // : ""
-          // }
-        >
+      <AppContext.Provider value={{ theme, toggleTheme, setLoggedIn }}>
+        <div className={`${applyThemes}`}>
           <Router>
-            <Sidebar>
-              <Routes>
-                <Route exact path="/" element={<Inbox />} />
-                <Route exact path="/assets" element={<Assets />} />
-                <Route exact path="/new-request" element={<NewRequest />}>
-                  <Route exact path="/new-request" element={<RequestInfo />} />
-                  <Route exact path="request-info" element={<RequestInfo />} />
-                  <Route exact path="files" element={<Files />} />
-                  <Route exact path="audit-log" element={<AuditLog />} />
-                  <Route exact path="comments" element={<Comments />} />
-                  <Route exact path="tasks" element={<Tasks />} />
-                </Route>
-                <Route exact path="/reporting" element={<Reporting />} />
-                <Route exact path="/admin" element={<Admin />} />
-              </Routes>
-            </Sidebar>
-            {/* <ThemeButtons setTheme={setTheme} /> */}
+            <Routes>
+              <Route exact path="/login" element={<Login />} />
+            </Routes>
+            {login && (
+              <Sidebar>
+                <Routes>
+                  <Route exact path="/" element={<Inbox />} />
+                  <Route exact path="/assets" element={<Assets />} />
+                  <Route exact path="/new-request" element={<NewRequest />}>
+                    <Route
+                      exact
+                      path="/new-request"
+                      element={<RequestInfo />}
+                    />
+                    <Route
+                      exact
+                      path="request-info"
+                      element={<RequestInfo />}
+                    />
+                    <Route exact path="files" element={<Files />} />
+                    <Route exact path="audit-log" element={<AuditLog />} />
+                    <Route exact path="comments" element={<Comments />} />
+                    <Route exact path="tasks" element={<Tasks />} />
+                  </Route>
+                  <Route exact path="/reporting" element={<Reporting />} />
+                  <Route exact path="/admin" element={<Admin />} />
+                  <Route exact path="/assets/browse" element={<Browse />} />
+                </Routes>
+              </Sidebar>
+            )}
           </Router>
         </div>
       </AppContext.Provider>

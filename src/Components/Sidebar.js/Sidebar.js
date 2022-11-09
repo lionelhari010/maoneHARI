@@ -13,17 +13,26 @@ import { BiListCheck } from "react-icons/bi";
 import { MdFileCopy } from "react-icons/md";
 import { HiChartPie } from "react-icons/hi";
 
+import { IoSettingsSharp } from "react-icons/io5";
+
 import { GiHealthNormal } from "react-icons/gi";
 
 import { FaUserShield } from "react-icons/fa";
 
 import { FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 
+import { Menu, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+
+import { BiTable } from "react-icons/bi";
+
 import { useContext } from "react";
 
 import { AppContext } from "../../Context";
 
-import NestedSidebar from "./NestedSidebar";
+import Dark from "../../images/Dark.png";
+
+import Light from "../../images/Light.png";
 
 const menuItem = [
   {
@@ -96,17 +105,24 @@ const Sidebar = ({ children }) => {
     ? "active-container-items"
     : "inactive-container-items";
 
-  const toggleLogos =
-    theme === true
-      ? "https://res.cloudinary.com/dyx9u0bif/image/upload/v1667883952/highres-ma-very-large_gce4xc.png"
-      : "https://res.cloudinary.com/ddsej2ff9/image/upload/v1665393077/MicrosoftTeams-image_tejvle.png";
+  const toggleLogos = theme === true ? Dark : Light;
+  // ? "https://res.cloudinary.com/dyx9u0bif/image/upload/v1667883952/highres-ma-very-large_gce4xc.png"
+  // : "https://res.cloudinary.com/ddsej2ff9/image/upload/v1665393077/MicrosoftTeams-image_tejvle.png";
 
   const toggleTexts = theme === true ? "Light Mode" : "Dark Mode";
+
+  const applyHrLine = theme === true ? "hr-light" : "hr-dark";
+
+  const [settings, setSettings] = useState(false);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   return (
     // All the routings goes from here
 
-    <div className="flex">
+    <div className="flex max-h-screen ">
       <div
         className={`${
           open ? "w-80" : "w-20"
@@ -131,32 +147,118 @@ const Sidebar = ({ children }) => {
             />
           )}
 
-          {open && <img src={`${toggleLogos}`} alt="logo" className="" />}
+          {open && <img src={`${toggleLogos}`} alt="logo" className=" h-20" />}
         </div>
 
-        {/* Routings */}
         <ul className="pt-6">
           {menuItem.map((menu, index) => {
+            // Asset here
             if (menu.path === "/assets") {
               return (
-                <NavLink
-                  to={menu.path}
-                  key={index}
-                  // className="text-gray-300 mt-2 bg-red-600 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md "
-
-                  className={({ isActive }) =>
-                    isActive ? "active-state" : "inactive-state"
-                  }
-                >
-                  <span className={`text-2xl ${!open && "ml-1"} `}>
-                    {menu.icon}
-                  </span>
-                  <span
-                    className={`text-xl ${!open && "hidden"}   duration-200 `}
+                <Menu as="div" className="relative">
+                  <NavLink
+                    to={menu.path}
+                    className={({ isActive }) =>
+                      isActive ? "active-state" : "inactive-state"
+                    }
+                    // className={`flex ${open && "w-64"} ${({ isActive }) =>
+                    //   isActive
+                    //     ? "active-state"
+                    //     : "inactive-state"} p-2 mt-2 justify-between items-center rounded-md bg-transparent text-lg font-medium text-white  focus:outline-none `}
                   >
-                    {menu.name}
-                  </span>
-                </NavLink>
+                    <span
+                      className={`text-xl flex ${
+                        !open && "ml-1"
+                      } items-center `}
+                    >
+                      {open && (
+                        <>
+                          {menu.icon}{" "}
+                          <span className="text-base ml-[19px] ">Asset</span>
+                        </>
+                      )}
+                      {!open && <> {menu.icon} </>}
+                    </span>
+                    <Menu.Button>
+                      {open && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="#ffffff"
+                          className="w-6 h-6 ml-28"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      )}
+
+                      {/* <ChevronDownIcon
+                        className="-mr-1 ml-2 h-5 w-5"
+                        aria-hidden="true"
+                      /> */}
+                    </Menu.Button>
+                  </NavLink>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 top-0 left-64 ml-1 z-10 mt-2 w-56 origin-top-right  rounded-md bg-slate-200  ring-black ring-opacity-5 focus:outline-none">
+                      <div
+                        className={`text-xl ${
+                          !open && "hidden"
+                        } py-1   duration-200 `}
+                      >
+                        <Menu.Item>
+                          {({ active }) => (
+                            <NavLink
+                              to="/Assets/Search"
+                              // element={<AssetSearch />}
+
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "flex items-center space-x-2 hover:no-underline px-4 py-3 text-lg"
+                              )}
+                            >
+                              <BiTable />
+                              <span>Search</span>
+                            </NavLink>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <NavLink
+                              to="/Assets/Browse"
+                              // element={<AssetBrowse />}
+
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "flex items-center space-x-2 text-lg hover:no-underline  px-4 py-3"
+                              )}
+                            >
+                              <BiTable />
+                              <span>Browse</span>
+                            </NavLink>
+                          )}
+                        </Menu.Item>
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
               );
             }
 
@@ -174,7 +276,7 @@ const Sidebar = ({ children }) => {
                   {menu.icon}
                 </span>
                 <span
-                  className={`text-xl ${!open && "hidden"}   duration-200 `}
+                  className={`text-base ${!open && "hidden"}   duration-200 `}
                 >
                   {menu.name}
                 </span>
@@ -183,7 +285,7 @@ const Sidebar = ({ children }) => {
           })}
         </ul>
 
-        <hr />
+        <hr className={`${applyHrLine}`} />
 
         {/* Admin  Routing Link */}
 
@@ -196,13 +298,13 @@ const Sidebar = ({ children }) => {
           <span className={`text-2xl ${!open && "ml-1"} `}>
             <FaUserShield />
           </span>
-          <span className={`text-xl ${!open && "hidden"}   duration-200 `}>
+          <span className={`text-base ${!open && "hidden"}   duration-200 `}>
             Admin
           </span>
         </NavLink>
 
         {/* Themes and profile details container*/}
-        <div className={` ${applyStylesToProfile}`}>
+        <div className={` ${applyStylesToProfile} `}>
           {/* Themes slider  */}
           <div className="flex justify-between">
             {open && <h6>{`${toggleTexts}`}</h6>}
@@ -220,7 +322,7 @@ const Sidebar = ({ children }) => {
 
           {/* Profile details container */}
 
-          <div className=" flex  p-2 items-center">
+          <div className=" flex  p-2 items-center  ">
             <img
               className={open ? "profile-lg" : "profile-sm"}
               src="https://assets.ccbp.in/frontend/react-js/esther-howard-img.png"
@@ -242,11 +344,15 @@ const Sidebar = ({ children }) => {
                 View Profile
               </span>
             </div>
+            <IoSettingsSharp
+              // onClick={toggleSettings}
+              className="text-2xl ml-5 cursor-pointer"
+            />
           </div>
         </div>
       </div>
 
-      <main className="min-h-full w-screen">{children}</main>
+      <main className="max-h-screen  w-screen">{children}</main>
     </div>
   );
 };
