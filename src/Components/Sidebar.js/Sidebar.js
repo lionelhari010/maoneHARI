@@ -222,7 +222,7 @@ const Sidebar = ({ children }) => {
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink
-                              to="/Assets/Search"
+                              to="/assets/search"
                               // element={<AssetSearch />}
 
                               className={classNames(
@@ -240,7 +240,7 @@ const Sidebar = ({ children }) => {
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink
-                              to="/Assets/Browse"
+                              to="/assets/browse"
                               // element={<AssetBrowse />}
 
                               className={classNames(

@@ -20,6 +20,7 @@ import Reporting from "./Components/Modules/Client/Reporting";
 import Login from "./Components/Login";
 
 import Browse from "./Components/Modules/Client/Assets/Browse";
+import Search from "./Components/Modules/Client/Assets/Search";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -71,6 +72,7 @@ const App = () => {
                   <Route exact path="/reporting" element={<Reporting />} />
                   <Route exact path="/admin" element={<Admin />} />
                   <Route exact path="/assets/browse" element={<Browse />} />
+                  <Route exact path="/assets/search" element={<Search />} />
                 </Routes>
               </Sidebar>
             )}
