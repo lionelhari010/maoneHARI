@@ -29,7 +29,7 @@ const RequestInfo = () => {
               required
             />
             <label
-              className="absolute top-2 left-3 peer-focus:duration-200 peer-focus:-translate-y-5 peer-valid:-translate-y-5 peer-focus:bg-white peer-valid:bg-white peer-valid:font-bold peer-focus:font-bold text-gray-400 transition duration-100"
+              className="absolute mt-1 top-2 left-3 peer-focus:duration-200 peer-focus:-translate-y-5 peer-valid:-translate-y-5 peer-focus:bg-white peer-valid:bg-white peer-valid:font-bold peer-focus:font-bold text-gray-400 transition duration-100"
               htmlFor="input"
               alt=""
             >
@@ -39,12 +39,13 @@ const RequestInfo = () => {
         ))}
       </div>
 
-      <div className="flex justify-center items-center p-3">
-        <button className="bg-gray-700 p-2 rounded-lg tracking-wide px-5 mr-2 text-white font-medium ">
-          submit
+      {/* Buttons container */}
+      <div className="flex justify-center gap-3 items-center p-3">
+        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium ">
+          Submit
         </button>
-        <button className="bg-gray-700 p-2 rounded-lg tracking-wide px-5 mr-2 text-white font-medium">
-          save
+        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium">
+          Save
         </button>
       </div>
     </section>

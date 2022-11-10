@@ -2,10 +2,28 @@ import React from "react";
 
 import { Link, Outlet } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
+
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { BsSliders } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
+
+import { IoGitNetworkSharp } from "react-icons/io5";
+
+import { FaWpforms } from "react-icons/fa";
+
+import { GrTemplate } from "react-icons/gr";
+
+import { IoMdPeople } from "react-icons/io";
+
+import { SiSpringsecurity } from "react-icons/si";
+
+import { MdEmail } from "react-icons/md";
+
+import { BsCardChecklist } from "react-icons/bs";
+
+import { AiFillFolderOpen } from "react-icons/ai";
 
 import AdminCard from "./AdminCard";
 
@@ -22,7 +40,7 @@ const teamData = [
     path: "/admin/roles",
     heading: "Roles",
     description: "Add and manage roles",
-    icon: <FiUsers />,
+    icon: <IoGitNetworkSharp />,
   },
 ];
 
@@ -32,53 +50,53 @@ const workflowData = [
     heading: "Form Fields",
     description:
       "Customize your data capture fields used in the workflow request",
-    icon: <FiUsers />,
+    icon: <FaWpforms />,
   },
 
   {
     id: 2,
     heading: "Workfllow Template",
     description: "Build your owm workflow template",
-    icon: <FiUsers />,
+    icon: <GrTemplate />,
   },
   {
     id: 3,
     heading: "Views",
     description:
       "Customize what fields to be used for tracking the workflow status",
-    icon: <FiUsers />,
+    icon: <IoMdPeople />,
   },
   {
     id: 4,
     heading: "Security",
     description: "Specify who should see the data",
-    icon: <FiUsers />,
+    icon: <SiSpringsecurity />,
   },
   {
     id: 5,
     heading: "Email templates",
     description: "Customize when, what and who will receive the email",
-    icon: <FiUsers />,
+    icon: <MdEmail />,
   },
   {
     id: 6,
     heading: "Checklists",
     description: "Customize the checklists used by the reviewers",
-    icon: <FiUsers />,
+    icon: <BsCardChecklist />,
   },
 
   {
     id: 7,
     heading: "Checklists",
     description: "Customize the checklists used by the reviewers",
-    icon: <FiUsers />,
+    icon: <BsCardChecklist />,
   },
-  {
-    id: 8,
-    heading: "Checklists",
-    description: "Customize the checklists used by the reviewers",
-    icon: <FiUsers />,
-  },
+  // {
+  //   id: 8,
+  //   heading: "Checklists",
+  //   description: "Customize the checklists used by the reviewers",
+  //   icon: <BsCardChecklist />,
+  // },
 ];
 
 const masterData = [
@@ -86,7 +104,7 @@ const masterData = [
     id: 1,
     heading: "File Types",
     description: "Manage the list of file types",
-    icon: <FiUsers />,
+    icon: <AiFillFolderOpen />,
   },
   {
     id: 2,
@@ -123,28 +141,32 @@ const Admin = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="overflow-scroll h-full fixed pb-12">
         {/* Team  */}
 
         <div>
-          <h1 className=" text-3xl ml-5 my-3 font-extrabold">Team</h1>
-          <div className="flex flex-row ml-14 ">
+          <h1 className=" text-2xl ml-5 my-4 font-extrabold">Team</h1>
+          <div className="flex flex-row ml-10 ">
             {teamData.map((eachTeam, index) => (
-              <div className="w-1/2 ml-2" to={eachTeam.path} key={eachTeam.id}>
+              <NavLink
+                className="w-1/2 ml-2"
+                to={eachTeam.path}
+                key={eachTeam.id}
+              >
                 <AdminCard key={eachTeam.id} eachTeam={eachTeam} />
-              </div>
+              </NavLink>
             ))}
           </div>
         </div>
 
         {/* Workflow */}
 
-        <div className=" flex flex-col flex-1 flex-wrap ">
-          <h1 className=" text-3xl ml-5 mt-3 font-extrabold">Workflow</h1>
+        <div className=" flex flex-col flex-1 my-4 flex-wrap ">
+          <h1 className=" text-2xl ml-5 mt-3 font-extrabold">Workflow</h1>
           <div className=" flex flex-wrap p-3 gap-y-2 ">
             {workflowData.map((eachTeam, index) => (
               <div
-                className="w-[44.33%] flex items-center p-3 ml-12 "
+                className="w-[44.33%] flex items-center p-3 ml-9 "
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
@@ -179,7 +201,7 @@ const Admin = () => {
       </div> */}
 
         <div className=" flex flex-col flex-1 flex-wrap ">
-          <h1 className=" text-3xl ml-5 font-extrabold">Master Lists</h1>
+          <h1 className=" text-2xl ml-5 font-extrabold">Master Lists</h1>
           <div className=" flex flex-wrap ">
             {masterData.map((eachTeam, index) => (
               <div
@@ -207,7 +229,7 @@ const Admin = () => {
       </div> */}
 
         <div className=" flex flex-col flex-1 flex-wrap ">
-          <h1 className=" text-3xl ml-5 font-extrabold">Account</h1>
+          <h1 className=" text-2xl ml-5 font-extrabold">Account</h1>
           <div className=" flex flex-wrap ">
             {masterData.map((eachTeam, index) => (
               <div

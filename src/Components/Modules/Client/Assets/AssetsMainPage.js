@@ -136,11 +136,39 @@ const data = [
     uid: "V4",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568432/prod2_z1sbza.jpg",
   },
+  {
+    id: 20,
+    uname: "Joel coat wines",
+    pname: "Bread",
+    uid: "V5",
+    pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568453/prod3_ypf7bv.jpg",
+  },
+  {
+    id: 21,
+    uname: "Joel coat wines",
+    pname: "Biscuit",
+    uid: "V4",
+    pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568432/prod2_z1sbza.jpg",
+  },
+  {
+    id: 18,
+    uname: "Joel coat wines",
+    pname: "Bread",
+    uid: "V5",
+    pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568453/prod3_ypf7bv.jpg",
+  },
+  {
+    id: 21,
+    uname: "Joel coat wines",
+    pname: "Biscuit",
+    uid: "V4",
+    pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568432/prod2_z1sbza.jpg",
+  },
 ];
 
 const AssetsMainPage = () => {
   return (
-    <div className="flex flex-wrap p-1 gap-3 flex-1 mt-2 ">
+    <div className="flex overflow-auto  h-screen fixed flex-wrap p-1 gap-3 flex-1 mt-2 pl-4 pb-28  ">
       {data.map((eachUser, index) => (
         <AssetCard eachUser={eachUser} key={index} />
       ))}

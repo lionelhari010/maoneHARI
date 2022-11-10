@@ -6,7 +6,7 @@ const AdminCard = (props) => {
   const { heading, description, icon } = eachTeam;
 
   return (
-    <div className="    ">
+    <div className="">
       <div className="flex items-center">
         <span className="text-5xl mr-4">{icon}</span>
         <div>

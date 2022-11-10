@@ -91,7 +91,7 @@ export const darkTheme = {
 
 @layer components {
   .active-container-items {
-    @apply mt-40;
+    @apply mt-36;
   }
 
   .inactive-container-items {
@@ -103,9 +103,9 @@ export const darkTheme = {
 
 @layer components {
   .hr-dark {
-    @apply border border-slate-500;
+    @apply border h-4 border-slate-500;
   }
   .hr-light {
-    @apply border  border-slate-500  h-[0px];
+    @apply border   border-slate-500  h-4;
   }
 }

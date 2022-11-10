@@ -8,7 +8,7 @@ const AssetCard = (props) => {
   const { id, pics, pname, uid, uname } = eachUser;
 
   return (
-    <div className="flex flex-col drop-shadow-2xl border-3 border-gray-100 shadow-lg rounded-lg  ">
+    <div className="flex flex-col drop-shadow-2xl  border-gray-100 shadow-lg rounded-xl ">
       <div className="">
         <img className="h-40 w-40" src={pics} alt={pname} />
         <div className="flex bg-gray-300 h-14 items-center ">

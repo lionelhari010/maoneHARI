@@ -22,6 +22,9 @@ import Login from "./Components/Login";
 import Browse from "./Components/Modules/Client/Assets/Browse";
 import Search from "./Components/Modules/Client/Assets/Search";
 
+import Users from "./Components/Modules/Admin/Users";
+import Roles from "./Components/Modules/Admin/Roles";
+
 const App = () => {
   const [open, setOpen] = useState(true);
 
@@ -73,6 +76,8 @@ const App = () => {
                   <Route exact path="/admin" element={<Admin />} />
                   <Route exact path="/assets/browse" element={<Browse />} />
                   <Route exact path="/assets/search" element={<Search />} />
+                  <Route exact path="/admin/users" element={<Users />} />
+                  <Route exact path="/admin/roles" element={<Roles />} />
                 </Routes>
               </Sidebar>
             )}

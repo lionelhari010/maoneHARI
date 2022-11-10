@@ -115,6 +115,10 @@ const Sidebar = ({ children }) => {
 
   const [settings, setSettings] = useState(false);
 
+  const toggleSettings = () => {
+    setSettings(!settings);
+  };
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
@@ -122,7 +126,7 @@ const Sidebar = ({ children }) => {
   return (
     // All the routings goes from here
 
-    <div className="flex max-h-screen ">
+    <div className="flex max-h-screen relative ">
       <div
         className={`${
           open ? "w-80" : "w-20"
@@ -304,9 +308,9 @@ const Sidebar = ({ children }) => {
         </NavLink>
 
         {/* Themes and profile details container*/}
-        <div className={` ${applyStylesToProfile} `}>
+        <div className={` ${applyStylesToProfile}  `}>
           {/* Themes slider  */}
-          <div className="flex justify-between">
+          <div className="flex justify-between mb-2 ">
             {open && <h6>{`${toggleTexts}`}</h6>}
 
             <div
@@ -322,7 +326,7 @@ const Sidebar = ({ children }) => {
 
           {/* Profile details container */}
 
-          <div className=" flex  p-2 items-center  ">
+          <div className=" flex mb-2  items-center  ">
             <img
               className={open ? "profile-lg" : "profile-sm"}
               src="https://assets.ccbp.in/frontend/react-js/esther-howard-img.png"
@@ -345,11 +349,20 @@ const Sidebar = ({ children }) => {
               </span>
             </div>
             <IoSettingsSharp
-              // onClick={toggleSettings}
-              className="text-2xl ml-5 cursor-pointer"
+              onClick={toggleSettings}
+              className="text-2xl ml-12 cursor-pointer"
             />
           </div>
         </div>
+        {settings && (
+          <div className="absolute bg-slate-200  w-full bottom-28 px-3 left-0">
+            <h4>Bharath</h4>
+
+            <p>Role: Associate developer</p>
+
+            <p>Age: 24</p>
+          </div>
+        )}
       </div>
 
       <main className="max-h-screen  w-screen">{children}</main>
