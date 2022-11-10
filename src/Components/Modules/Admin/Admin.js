@@ -13,7 +13,9 @@ import { IoGitNetworkSharp } from "react-icons/io5";
 
 import { FaWpforms } from "react-icons/fa";
 
-import { GrTemplate } from "react-icons/gr";
+import { GrTemplate, GrUserSettings } from "react-icons/gr";
+
+import { MdManageAccounts } from "react-icons/md";
 
 import { IoMdPeople } from "react-icons/io";
 
@@ -47,6 +49,7 @@ const teamData = [
 const workflowData = [
   {
     id: 1,
+    path: "/admin/workflow/form-fields",
     heading: "Form Fields",
     description:
       "Customize your data capture fields used in the workflow request",
@@ -55,12 +58,14 @@ const workflowData = [
 
   {
     id: 2,
+    path: "/admin/workflow/template",
     heading: "Workfllow Template",
     description: "Build your owm workflow template",
     icon: <GrTemplate />,
   },
   {
     id: 3,
+    path: "/admin/workflow/views",
     heading: "Views",
     description:
       "Customize what fields to be used for tracking the workflow status",
@@ -68,12 +73,14 @@ const workflowData = [
   },
   {
     id: 4,
+    path: "/admin/workflow/security",
     heading: "Security",
     description: "Specify who should see the data",
     icon: <SiSpringsecurity />,
   },
   {
     id: 5,
+    path: "/admin/workflow/email",
     heading: "Email templates",
     description: "Customize when, what and who will receive the email",
     icon: <MdEmail />,
@@ -81,16 +88,17 @@ const workflowData = [
   {
     id: 6,
     heading: "Checklists",
+    path: "/admin/workflow/checklists",
     description: "Customize the checklists used by the reviewers",
     icon: <BsCardChecklist />,
   },
 
-  {
-    id: 7,
-    heading: "Checklists",
-    description: "Customize the checklists used by the reviewers",
-    icon: <BsCardChecklist />,
-  },
+  // {
+  //   id: 7,
+  //   heading: "Checklists",
+  //   description: "Customize the checklists used by the reviewers",
+  //   icon: <BsCardChecklist />,
+  // },
   // {
   //   id: 8,
   //   heading: "Checklists",
@@ -102,12 +110,14 @@ const workflowData = [
 const masterData = [
   {
     id: 1,
+    path: "/admin/master/file-types",
     heading: "File Types",
     description: "Manage the list of file types",
     icon: <AiFillFolderOpen />,
   },
   {
     id: 2,
+    path: "/admin/master/departments",
     heading: "Departments",
     description: "Manage the list of department users",
     icon: <FiUsers />,
@@ -117,13 +127,17 @@ const masterData = [
 const accountData = [
   {
     id: 1,
+    path: "/admin/account/general-settings",
     heading: "General Settings",
     description: "Manage default settings for all users-timezone,etc.",
+    icon: <GrUserSettings />,
   },
   {
     id: 2,
+    path: "/admin/account/account-details",
     heading: "Account Details",
     description: "View account status and storage information",
+    icon: <MdManageAccounts />,
   },
 ];
 
@@ -165,13 +179,13 @@ const Admin = () => {
           <h1 className=" text-2xl ml-5 mt-3 font-extrabold">Workflow</h1>
           <div className=" flex flex-wrap p-3 gap-y-2 ">
             {workflowData.map((eachTeam, index) => (
-              <div
+              <NavLink
                 className="w-[44.33%] flex items-center p-3 ml-9 "
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
                 <AdminCard key={eachTeam.id} eachTeam={eachTeam} />
-              </div>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -204,13 +218,13 @@ const Admin = () => {
           <h1 className=" text-2xl ml-5 font-extrabold">Master Lists</h1>
           <div className=" flex flex-wrap ">
             {masterData.map((eachTeam, index) => (
-              <div
+              <NavLink
                 className="w-[44%]  flex items-center ml-16 "
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
                 <AdminCard key={eachTeam.id} eachTeam={eachTeam} />
-              </div>
+              </NavLink>
             ))}
           </div>
         </div>
@@ -231,14 +245,14 @@ const Admin = () => {
         <div className=" flex flex-col flex-1 flex-wrap ">
           <h1 className=" text-2xl ml-5 font-extrabold">Account</h1>
           <div className=" flex flex-wrap ">
-            {masterData.map((eachTeam, index) => (
-              <div
+            {accountData.map((eachTeam, index) => (
+              <NavLink
                 className="w-[44%]  flex items-center ml-16 "
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
                 <AdminCard key={eachTeam.id} eachTeam={eachTeam} />
-              </div>
+              </NavLink>
             ))}
           </div>
         </div>

@@ -2,7 +2,12 @@ import React, { useState } from "react";
 
 import "./index.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import { AppContext } from "./Context";
 import Sidebar from "./Components/Sidebar.js/Sidebar";
@@ -24,6 +29,26 @@ import Search from "./Components/Modules/Client/Assets/Search";
 
 import Users from "./Components/Modules/Admin/Users";
 import Roles from "./Components/Modules/Admin/Roles";
+
+import FormFields from "./Components/Modules/Admin/Workflow/FormFields";
+
+import Template from "./Components/Modules/Admin/Workflow/Template";
+
+import Views from "./Components/Modules/./Admin/Workflow/Views";
+
+import Security from "./Components/Modules/Admin/Workflow/Security";
+
+import Email from "./Components/Modules/Admin/Workflow/Email";
+
+import Checklists from "./Components/Modules/Admin/Workflow/Checklists";
+
+import FileTypes from "./Components/Modules/Admin/MasterLists/FileTypes";
+
+import Departments from "./Components/Modules/Admin/MasterLists/Departments";
+
+import GeneralSettins from "./Components/Modules/Admin/Account/GeneralSettins";
+
+import AccountDetails from "./Components/Modules/Admin/Account/AccountDetails";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -60,7 +85,8 @@ const App = () => {
                     <Route
                       exact
                       path="/new-request"
-                      element={<RequestInfo />}
+                      // element={<RequestInfo />}
+                      element={<Navigate to="request-info" />}
                     />
                     <Route
                       exact
@@ -78,6 +104,65 @@ const App = () => {
                   <Route exact path="/assets/search" element={<Search />} />
                   <Route exact path="/admin/users" element={<Users />} />
                   <Route exact path="/admin/roles" element={<Roles />} />
+                  <Route
+                    exact
+                    path="/admin/workflow/form-fields"
+                    element={<FormFields />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/workflow/template"
+                    element={<Template />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/workflow/views"
+                    element={<Views />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/workflow/security"
+                    element={<Security />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/workflow/email"
+                    element={<Email />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/workflow/checklists"
+                    element={<Checklists />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/master/file-types"
+                    element={<FileTypes />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/master/departments"
+                    element={<Departments />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/account/general-settings"
+                    element={<GeneralSettins />}
+                  />
+
+                  <Route
+                    exact
+                    path="/admin/account/account-details"
+                    element={<AccountDetails />}
+                  />
                 </Routes>
               </Sidebar>
             )}

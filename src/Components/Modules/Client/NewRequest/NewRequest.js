@@ -49,7 +49,7 @@ const NewRequest = () => {
           <BsFillQuestionCircleFill className="text-2xl" />
         </div>
       </div>
-      <nav className="flex mt-2 py-2">
+      <nav className="flex items-center ">
         {newRequestRoutes.map((item, index) => (
           <NavLink
             className={({ isActive }) =>

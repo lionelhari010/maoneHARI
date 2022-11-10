@@ -63,7 +63,7 @@ export const darkTheme = {
 
 @layer components {
   .active-navbar {
-    @apply text-slate-600 mt-2 text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer p-2 pb-0 border border-x-0  border-t-0 border-y-2 border-slate-600 visited:text-black hover:no-underline visited:no-underline focus:no-underline mx-2;
+    @apply text-slate-600  text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer p-2 pb-0 border border-x-0  border-t-0 border-y-4  border-slate-600 visited:text-black hover:no-underline visited:no-underline focus:no-underline mx-2;
   }
 
   .inactive-navbar {

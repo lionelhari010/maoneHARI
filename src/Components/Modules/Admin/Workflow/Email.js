@@ -1,18 +1,16 @@
 import React from "react";
-
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 
 import { FiUsers } from "react-icons/fi";
-
-const Roles = () => {
+const Email = () => {
   return (
     <div>
       <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
         <div className="flex items-center">
           <FiUsers className="text-2xl mr-3" />
 
-          <h1 className="text-2xl">Admin Roles </h1>
+          <h1 className="text-2xl">Admin Email </h1>
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />
@@ -23,4 +21,4 @@ const Roles = () => {
   );
 };
 
-export default Roles;
+export default Email;
