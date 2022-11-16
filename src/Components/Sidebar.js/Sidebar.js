@@ -159,7 +159,7 @@ const Sidebar = ({ children }) => {
             // Asset here
             if (menu.path === "/assets") {
               return (
-                <Menu as="div" className="relative">
+                <Menu as="div" key={index} className="relative">
                   <NavLink
                     to={menu.path}
                     className={({ isActive }) =>

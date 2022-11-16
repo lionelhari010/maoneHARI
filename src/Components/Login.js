@@ -23,12 +23,29 @@ const Login = ({ children }) => {
     setPassword(event.target.value);
   };
   const submitHandler = (e) => {
+    // if (username === "" || password === "") {
+    //   return (
+    //     <div
+    //       class="bg-orange-100 fixed top-12 left-1/2 border-l-4 border-orange-500 text-orange-700 p-4"
+    //       role="alert"
+    //     >
+    //       <p class="font-bold">Be Warned</p>
+    //       <p>Something not ideal might be happening.</p>
+    //     </div>
+    //   );
+    // }
     if (username === "artwork" && password === "artwork") {
       e.preventDefault();
       setLoggedIn(true);
       navigate("/");
     } else {
-      alert("Pease Enter Correct Details");
+      alert("Enter valid detail please");
+    }
+  };
+  const enterkeyHandler = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      submitHandler();
     }
   };
   const forgetPassHandler = () => {
@@ -48,7 +65,7 @@ const Login = ({ children }) => {
   };
   return (
     <div>
-      <div className="flex w-full">
+      <div className="flex fixed w-full">
         {/* Left side */}
         <div className="flex bg-white mr-2 shadow-md shadow-slate-600 md:px-12 flex-col pt-9 w-full md:w-1/2">
           {/* Logo */}
@@ -86,7 +103,7 @@ const Login = ({ children }) => {
                   placeholder="name@company.com"
                   required
                 />
-                <p class="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
+                <p className="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid email address.
                 </p>
               </div>
@@ -109,25 +126,25 @@ const Login = ({ children }) => {
                 {/* eye icon */}
                 <span
                   onClick={showPass}
-                  className=" absolute right-6 top-10 w-6"
+                  className=" absolute right-6 top-9 w-6"
                 >
                   {toggleIcon && (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       className="w-6 h-6 stroke-gray-400"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
                       />
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
@@ -137,20 +154,20 @@ const Login = ({ children }) => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       className="w-6 h-6 stroke-gray-400"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
                       />
                     </svg>
                   )}
                 </span>
 
-                <p class="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
+                <p className="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid password.
                 </p>
               </div>
@@ -211,10 +228,10 @@ const Login = ({ children }) => {
             }  mx-20 md:mx-0 mb-12`}
           >
             {forgetPass && (
-              <div className="mb-6">
+              <div className="">
                 <button
                   onClick={forgetPassHandler1}
-                  className="bg-blue-700 mr-4 hover:bg-blue-500 shadow-md font-medium py-3 rounded-xl w-32 mt-20  text-white"
+                  className="bg-blue-700 mr-4 mb-12 hover:bg-blue-500 shadow-md font-medium py-3 rounded-xl w-32 mt-20  text-white"
                 >
                   Cancel
                 </button>
@@ -226,7 +243,8 @@ const Login = ({ children }) => {
             {!forgetPass && (
               <button
                 onClick={submitHandler}
-                className="bg-blue-700 hover:bg-blue-500 shadow-md font-medium py-3 rounded-xl w-32 mt-20  text-white"
+                onKeyDown={enterkeyHandler}
+                className="bg-blue-700 mb-4 hover:bg-blue-500 shadow-md font-medium py-3 rounded-xl w-32 mt-20  text-white"
               >
                 Sign in
               </button>
@@ -235,7 +253,7 @@ const Login = ({ children }) => {
         </div>
 
         {/*  Right side */}
-        <div className="w-1/2 bg-veryLightBlueGray  hidden md:block max-h-full">
+        <div className="w-1/2 bg-veryLightBlueGray  hidden md:block max-h-screen">
           <img src={Bgimg} className="h-full" alt="" />
         </div>
       </div>

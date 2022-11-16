@@ -110,13 +110,20 @@ const workflowData = [
 const masterData = [
   {
     id: 1,
-    path: "/admin/master/file-types",
+    path: "/admin/master",
     heading: "File Types",
     description: "Manage the list of file types",
     icon: <AiFillFolderOpen />,
   },
+  // {
+  //   id: 2,
+  //   path: "/admin/master/file-types",
+  //   heading: "File Types",
+  //   description: "Manage the list of file types",
+  //   icon: <AiFillFolderOpen />,
+  // },
   {
-    id: 2,
+    id: 3,
     path: "/admin/master/departments",
     heading: "Departments",
     description: "Manage the list of department users",

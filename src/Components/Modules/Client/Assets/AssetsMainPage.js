@@ -2,7 +2,7 @@ import React from "react";
 
 import AssetCard from "./AssetCard";
 
-const data = [
+export const DATAS = [
   {
     id: 1,
     uname: "Sutter Home",
@@ -12,7 +12,7 @@ const data = [
   },
   {
     id: 2,
-    uname: "Manage tools",
+    uname: "Manage trios",
     pname: "Biscuit",
     uid: "V2",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568432/prod2_z1sbza.jpg",
@@ -40,7 +40,7 @@ const data = [
   },
   {
     id: 6,
-    uname: " Manage tools",
+    uname: " Manage trios",
     pname: "Biscuit",
     uid: "V2",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568380/prod1_wrycvd.webp",
@@ -61,7 +61,7 @@ const data = [
   },
   {
     id: 9,
-    uname: "Manage tools",
+    uname: "Manage trios",
     pname: "Bread",
     uid: "V3",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568453/prod3_ypf7bv.jpg",
@@ -75,7 +75,7 @@ const data = [
   },
   {
     id: 11,
-    uname: " Manage tools",
+    uname: " Manage trios",
     pname: "Biscuit",
     uid: "V5",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568432/prod2_z1sbza.jpg",
@@ -89,14 +89,14 @@ const data = [
   },
   {
     id: 13,
-    uname: " Manage tools",
+    uname: " Manage trios",
     pname: "water",
     uid: "V3",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568453/prod4_rrr0jj.jpg",
   },
   {
     id: 14,
-    uname: " Manage tools",
+    uname: " Manage trios",
     pname: "Biscuit",
     uid: "V2",
     pics: "https://res.cloudinary.com/duwkxxbeh/image/upload/v1665568380/prod1_wrycvd.webp",
@@ -169,7 +169,7 @@ const data = [
 const AssetsMainPage = () => {
   return (
     <div className="flex overflow-auto  h-screen fixed flex-wrap p-1 gap-3 flex-1 mt-2 pl-4 pb-28  ">
-      {data.map((eachUser, index) => (
+      {DATAS.map((eachUser, index) => (
         <AssetCard eachUser={eachUser} key={index} />
       ))}
     </div>

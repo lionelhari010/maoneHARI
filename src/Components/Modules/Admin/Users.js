@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { BsSliders } from "react-icons/bs";
@@ -15,11 +15,30 @@ const Users = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
+      <div className="flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
         <div className="flex items-center">
           <FiUsers className="text-2xl mr-3" />
-
-          <h1 className="text-2xl">Admin Users </h1>
+          <nav className="">
+            <ul className="flex mt-1 space-x-1">
+              <li className="after:content-['_/'] pl-2 after:px-2 ">
+                <Link
+                  to="/admin"
+                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                >
+                  Admin
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/admin/users"
+                  className=" text-slate-500 visited:no-underline active:no-underline visited:text-indigo-800 hover:no-underline hover:text-slate-900 font-bold"
+                >
+                  Users
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          {/* <h1 className="text-2xl">Admin Users</h1> */}
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />

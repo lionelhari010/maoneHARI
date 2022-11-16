@@ -9,7 +9,9 @@
 input[type="date"]:focus ~ .input-text {
   @apply text-gray-500 bg-white transform -translate-y-5 -translate-x-0 scale-75;
 } */
-
+* {
+  box-sizing: border-box;
+}
 @layer base {
   :root {
     --text-color: #010b13;

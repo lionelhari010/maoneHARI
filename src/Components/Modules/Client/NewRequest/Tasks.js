@@ -81,7 +81,7 @@ const Tasks = () => {
       </table>
 
       {/* Buttons container */}
-      <div className="flex justify-center gap-3 items-center p-3">
+      <div className="flex justify-center gap-3 fixed left-1/2  bottom-0 items-center p-3">
         <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium ">
           Submit
         </button>

@@ -49,6 +49,7 @@ import Departments from "./Components/Modules/Admin/MasterLists/Departments";
 import GeneralSettins from "./Components/Modules/Admin/Account/GeneralSettins";
 
 import AccountDetails from "./Components/Modules/Admin/Account/AccountDetails";
+import MasterList from "./Components/Modules/Admin/MasterLists/MasterList";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -139,7 +140,7 @@ const App = () => {
                     path="/admin/workflow/checklists"
                     element={<Checklists />}
                   />
-
+                  <Route exact path="/admin/master" element={<MasterList />} />
                   <Route
                     exact
                     path="/admin/master/file-types"
